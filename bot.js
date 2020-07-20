@@ -19,11 +19,11 @@ client.on("message", async message => {
     const args = message.content.slice(PREFIX.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    if ("command" === "play") {
+    if (command === "assemble") {
 
         // If the user does not specify the game to play
         if (!args.length) {
-            return message.channel.send("error");
+            return message.channel.send("Hey <@" + message.author.id + ">, you must specify a game!");
         }
 
         else if (args[0] === "league" || args[0] === "lol"){
