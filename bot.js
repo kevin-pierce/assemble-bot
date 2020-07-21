@@ -1,6 +1,8 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
+const { OpusEncoder } = require('@discordjs/opus');
+const fs = require("fs");
 
 let voiceChannel;
 
@@ -15,7 +17,7 @@ const PREFIX = "!";
 const bmMsgArr = ["Isaiah goes 0/10 Bard support in ranked again",
                   "Flips decides to work on Foodprint for the 9th hour today",
                   "Kevin has to play Minecraft with his sister",
-                  "Eric neighbours yell at him to quiet down",
+                  "Eric's neighbours yell at him to quiet down",
                   "Steven decides to play Sett jungle again"]
 
 // Handling for commands
@@ -45,6 +47,16 @@ client.on("message", async message => {
 
             if (message.member.voice.channel) {
                 const connection = await message.member.voice.channel.join();
+                const dispatcher = connection.play("./avengers.mp3");
+
+                dispatcher.on("start", () => {
+                    console.log("audio playing");
+                })
+
+                dispatcher.on("finish", () => {
+                    console.log("finished playing");
+                    dispatcher.destroy();
+                })
             }
             // voiceChannel.join()
             //     .then(connection => console.log('Connected!'))
@@ -63,7 +75,7 @@ client.on("message", async message => {
             // }   
 
             // Formatted message for the bot to send into the chat - UNCOMMENT LATER
-            //botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage();
+            botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage();
             return message.channel.send(botMsg);
         }
     }
