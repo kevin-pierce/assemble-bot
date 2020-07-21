@@ -1,8 +1,6 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
-const { OpusEncoder } = require('@discordjs/opus');
-const fs = require("fs");
 
 let voiceChannel;
 
