@@ -2,7 +2,11 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
 
+let voiceChannel;
+
 client.on("ready", () => {
+    voiceChannel = client.channels.fetch("325445196856688650");
+    console.log(voiceChannel);
     console.log("Connected as " + client.user.tag);
 });
 
@@ -17,9 +21,8 @@ const bmMsgArr = ["Isaiah goes 0/10 Bard support in ranked again",
 // Handling for commands
 client.on("message", async message => {
 
-    // Initialize an empty message and embed
+    // Initialize an empty message
     let botMsg = "";
-    let botEmbed = new Discord.MessageEmbed();
 
     // Do nothing if the message does not start with the command prefix, or the bot is sending the message
     if (!message.content.startsWith(PREFIX) || message.author.bot) return;
@@ -39,7 +42,28 @@ client.on("message", async message => {
 
         // User specifies League
         else if (args[0] === "league" || args[0] === "lol"){
-            botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nGet on quick before " + getBMMessage();
+
+            if (message.member.voice.channel) {
+                const connection = await message.member.voice.channel.join();
+            }
+            // voiceChannel.join()
+            //     .then(connection => console.log('Connected!'))
+            //     .catch(console.error);
+
+            // // See if the voice channel exists
+            // if (!voiceChannel) {
+            //     return console.error("The channel does not exist!");
+            // }
+            // else {
+            //     voiceChannel.channel.join().then(connection => {
+            //         console.log("Connected to ICS Study");
+            //     }).catch (e => {
+            //         console.error(e);
+            //         })
+            // }   
+
+            // Formatted message for the bot to send into the chat - UNCOMMENT LATER
+            //botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage();
             return message.channel.send(botMsg);
         }
     }
@@ -47,7 +71,7 @@ client.on("message", async message => {
 
 const getBMMessage = () => {
     let msg = "";
-    return msg = bmMsgArr[Math.floor(Math.random() * 4)]
+    return msg = bmMsgArr[Math.floor(Math.random() * 5)]
 }
 
 // Login to the 
