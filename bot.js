@@ -17,7 +17,7 @@ const PREFIX = "!";
 const bmMsgArr = ["Isaiah goes 0/10 Bard support in ranked again",
                   "Flips decides to work on Foodprint for the 9th hour today",
                   "Kevin has to play Minecraft with his sister",
-                  "Eric's neighbours yell at him to quiet down",
+                  "Eric goes back to watching math lectures",
                   "Steven decides to play Sett jungle again"]
 
 // Handling for commands
@@ -46,6 +46,10 @@ client.on("message", async message => {
         else if (args[0] === "league" || args[0] === "lol"){
 
             if (message.member.voice.channel) {
+
+                botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage();
+                message.channel.send(botMsg);
+
                 const connection = await message.member.voice.channel.join();
                 const dispatcher = connection.play("./avengers.mp3");
 
@@ -55,28 +59,30 @@ client.on("message", async message => {
 
                 dispatcher.on("finish", () => {
                     console.log("finished playing");
+                    message.member.voice.channel.leave();
                     dispatcher.destroy();
                 })
             }
-            // voiceChannel.join()
-            //     .then(connection => console.log('Connected!'))
-            //     .catch(console.error);
+        }
+        else if (args[0] === "valorant" || args[0] === "val"){
+            if (message.member.voice.channel) {
 
-            // // See if the voice channel exists
-            // if (!voiceChannel) {
-            //     return console.error("The channel does not exist!");
-            // }
-            // else {
-            //     voiceChannel.channel.join().then(connection => {
-            //         console.log("Connected to ICS Study");
-            //     }).catch (e => {
-            //         console.error(e);
-            //         })
-            // }   
+                botMsg = "<@!522555968211648525>, <@!308071233990164480>, <@712143411716554754>, <@693340705883684944>, <@!323946802598510593>, \nget on Valo-imagine playing this game still lmaooo";
+                message.channel.send(botMsg);
 
-            // Formatted message for the bot to send into the chat - UNCOMMENT LATER
-            botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage();
-            return message.channel.send(botMsg);
+                const connection = await message.member.voice.channel.join();
+                const dispatcher = connection.play("./gio-theme.mp3");
+
+                dispatcher.on("start", () => {
+                    console.log("audio playing");
+                })
+
+                dispatcher.on("finish", () => {
+                    console.log("finished playing");
+                    message.member.voice.channel.leave();
+                    dispatcher.destroy();
+                })
+            }
         }
     }
 })
