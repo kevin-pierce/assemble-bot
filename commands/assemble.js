@@ -14,7 +14,6 @@ module.exports = {
         else if (args[0] === "league" || args[0] === "lol"){
     
             if (message.member.voice.channel) {
-    
                 botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage();
                 message.channel.send(botMsg);
     
@@ -24,7 +23,6 @@ module.exports = {
                 dispatcher.on("start", () => {
                     console.log("audio playing");
                 })
-    
                 dispatcher.on("finish", () => {
                     console.log("finished playing");
                     message.member.voice.channel.leave();
@@ -34,8 +32,7 @@ module.exports = {
         }
         else if (args[0] === "valorant" || args[0] === "val"){
             if (message.member.voice.channel) {
-    
-                botMsg = "<@!522555968211648525>, <@!308071233990164480>, <@712143411716554754>, <@693340705883684944>, <@!323946802598510593>, \nget on Valo-imagine playing this game still lmaooo";
+                botMsg = "<@!522555968211648525>, <@!308071233990164480>, <@181215730866323456>, <@193779352792596480>, <@!323946802598510593>, \nget on Valo-imagine playing this game still lmaooo";
                 message.channel.send(botMsg);
     
                 const connection = await message.member.voice.channel.join();
