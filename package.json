@@ -1,0 +1,13 @@
+{
+    "name": "assemble-bot",
+    "version": "1.0.0",
+    "description": "A very simple bot that mentions people in a Discord server, notifying them to login to a video game of choice.",
+    "main": "bot.js",
+    "scripts": {
+      "start": "node."
+      "lint": "eslint ."
+    },
+    "keywords": [],
+    "author": "Kevin Pierce",
+    "license": "none"
+  }
