@@ -32,4 +32,4 @@ client.on("message", async message => {
 })
 
 // Login to the client
-client.login(config.token);
+client.login(process.env.token);
