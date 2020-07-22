@@ -1,3 +1,5 @@
+// This line must be first to read environment variables (The Token)
+require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
@@ -32,4 +34,4 @@ client.on("message", async message => {
 })
 
 // Login to the client
-client.login(process.env.token);
+client.login();

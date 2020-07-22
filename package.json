@@ -1,15 +1,20 @@
 {
-    "name": "assemble-bot",
-    "version": "1.0.0",
-    "description": "A very simple bot that mentions people in a Discord server, notifying them to login to a video game of choice.",
-    "main": "bot.js",
-    "scripts": {
-      "start": "node .",
-      "lint": "eslint ."
-    },
-    "author": "Kevin Pierce",
-    "license": "none",
-    "dependencies": {
-      "discord.js":"12.2.0"
-    }
+  "name": "assemble-bot",
+  "version": "1.0.0",
+  "description": "A very simple bot that mentions people in a Discord server, notifying them to login to a video game of choice.",
+  "main": "bot.js",
+  "engines": {
+    "node": "13.7.0",
+    "npm": "*"
+  },
+  "scripts": {
+    "start": "node bot.js",
+    "lint": "eslint ."
+  },
+  "author": "Kevin Pierce",
+  "license": "none",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0"
   }
+}
