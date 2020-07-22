@@ -1,4 +1,4 @@
-// This line must be first to read environment variables (The Token)
+// This line must be first to read environment variables 
 require('dotenv').config();
 const Discord = require("discord.js");
 const client = new Discord.Client();

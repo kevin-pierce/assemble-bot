@@ -8,7 +8,6 @@
     "npm": "*"
   },
   "scripts": {
-    "start": "node bot.js",
     "lint": "eslint ."
   },
   "author": "Kevin Pierce",
