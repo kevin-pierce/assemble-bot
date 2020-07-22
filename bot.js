@@ -26,11 +26,13 @@ client.on("message", async message => {
     const args = message.content.slice(config.prefix.length).split(/ +/);
     const command = args.shift().toLowerCase();
 
-    // The parent command
+    // Call the execute method of each respective command
     if (command === "assemble") {
         client.commands.get("assemble").execute(message, args);
     }
+    else if (command === "wtf" || command === "asshelp")
+        client.commands.get("help").execute(message);
 })
 
-// Login to the client
+// Login to the client (No longer need to import from config.js)
 client.login();
