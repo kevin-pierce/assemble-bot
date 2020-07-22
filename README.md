@@ -16,5 +16,11 @@ If you wish to use this bot on your own server, clone this repository, replace t
 
 *Example: !assemble league*
 
+## Version 1.0.0
+- Now hosted on Heroku (24/7 uptime)
+
+## Known Issues
+- Audio is now corrupted; bot will not play music, and will indefinitely sit in voice channel
+
 ## Author
 Kevin Pierce
