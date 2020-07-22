@@ -1,6 +1,30 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const config = require("./config.json");
+const fs = require("fs");
+
+client.commands = new Discord.Collection(); // Refactor command location to cleanup the single JS file
+client.aliases = new Discord.Collection();
+
+const modules = ["play"]; // A list of all folders within the Commands folder
+
+modules.forEach(c => {
+    fs.readdir(`./commands/${c}/`, (err, files) => { // Iterate through each folder
+        if (err){ 
+            throw err; // If the bot doesn't find a module
+        }
+        console.log(`[Commandlogs] Loaded ${files.length} commands of module ${c}`); // Console output when the bot successfully loads a module
+
+        files.forEach(f => {
+            const props = require(`./commands${c}/${f}`); // Iterate through each command file itself
+            client.commands.set(props.help.name, props);
+
+            props.conf.aliases.forEach(alias => { // Iterate through alias for each command (the alternative names)
+                client.aliases.set(alias, props.name); // Add aliases to the collection
+            });
+        });
+    });
+});
 
 let voiceChannel;
 
