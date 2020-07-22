@@ -1,14 +1,14 @@
 // This line must be first to read environment variables 
 require('dotenv').config();
-const Discord = require("discord.js");
+const Discord = require('discord.js');
 const client = new Discord.Client();
-const config = require("./config.json");
-const { readdirSync } = require("fs");
+const config = require('./config.json');
+const { readdirSync } = require('fs');
 
 client.commands = new Discord.Collection(); // Create a new Collection consisting of all our Discord bot commands
 
 // Place all command files into our Collection
-const commandFiles = readdirSync("./commands/").filter(file => file.endsWith(".js"));
+const commandFiles = readdirSync('./commands/').filter(file => file.endsWith(".js"));
 for (const file of commandFiles){
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
