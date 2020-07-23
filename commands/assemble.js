@@ -9,12 +9,11 @@ module.exports = {
             botMsg = "Hey <@" + message.author.id + ">, you must specify a game!";
             return message.channel.send(botMsg);
         }
-    
         // User specifies League
         else if (args[0] === "league" || args[0] === "lol"){
     
             if (message.member.voice.channel) {
-                botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage();
+                botMsg = "<@!308071233990164480>, <@!91498883980480512>, <@604828203722473502>, <@109750986783924224>, <@!323946802598510593>, \nget on quick before " + getBMMessage() + "!";
                 message.channel.send(botMsg);
     
                 const connection = await message.member.voice.channel.join();
@@ -48,6 +47,10 @@ module.exports = {
                     dispatcher.destroy();
                 })
             }
+        }
+        else if (args[0]) {
+            botMsg = "Listen buddy your friend group plays one of 3 games:\n1. League of Legends\n2. LoL\n 3.League";
+            return message.channel.send(botMsg);
         }
     }
 }
