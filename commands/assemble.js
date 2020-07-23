@@ -20,12 +20,14 @@ module.exports = {
                 const dispatcher = connection.play("./music/avengers.mp3", {volume: 0.5});
     
                 dispatcher.on("start", () => {
-                    console.log("audio playing");
+                    console.log("Now playing 'The Avengers Theme'");
+                    return;
                 })
                 dispatcher.on("finish", () => {
-                    console.log("finished playing");
+                    console.log("Finished playing 'The Avengers Theme'");
                     message.member.voice.channel.leave();
                     dispatcher.destroy();
+                    return;
                 })
             }
         }
@@ -38,13 +40,15 @@ module.exports = {
                 const dispatcher = connection.play("./music/gio-theme.mp3", {volume: 0.5});
     
                 dispatcher.on("start", () => {
-                    console.log("audio playing");
+                    console.log("Now playing 'Gio's Theme'");
+                    return;
                 })
     
                 dispatcher.on("finish", () => {
-                    console.log("finished playing");
+                    console.log("Finished playing 'Gio's Theme'");
                     message.member.voice.channel.leave();
                     dispatcher.destroy();
+                    return;
                 })
             }
         }
@@ -54,7 +58,6 @@ module.exports = {
         }
     }
 }
-
 const bmMsgArr = ["Isaiah goes 0/10 Bard support in ranked again",
                   "Flips decides to work on Foodprint for the 9th hour today",
                   "Kevin has to play Minecraft with his sister",
