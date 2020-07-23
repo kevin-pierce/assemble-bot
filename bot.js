@@ -30,8 +30,9 @@ client.on("message", async message => {
     if (command === "assemble") {
         client.commands.get("assemble").execute(message, args);
     }
-    else if (command === "wtf" || command === "asshelp")
+    else if (command === "helpme"){
         client.commands.get("help").execute(message);
+    }
 })
 
 // Login to the client (No longer need to import from config.js)

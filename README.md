@@ -2,7 +2,7 @@
 A bot that saves about 79% of the keystrokes involved in mentioning each friend of yours individually on Discord when you wish to play video games together. 
 
 ## Features
-- Simplistic, Apple-inspired design with only one command
+- Simplistic, Apple-inspired design with only ~~one~~ two command(s)
 - Plays cool music when it joins the voice channel
 - Tells inside jokes written by yours truly
 
@@ -16,11 +16,7 @@ If you wish to use this bot on your own server, clone this repository, replace t
 
 *Example: !assemble league*
 
-## Version 1.0.0
-- Now hosted on Heroku (24/7 uptime)
-
-## Known Issues
-- Audio is now corrupted; bot will not play music, and will indefinitely sit in voice channel
+- **!helpme
 
 ## Author
 Kevin Pierce
